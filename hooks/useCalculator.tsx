@@ -50,7 +50,28 @@ export const useCalculator = () => {
 
     const Reset = () =>{
         setFormula('0'),
-        setNumber('0')
+        setNumber('0'),
+        setPreviusNumber('0'),
+        LastOperation.current = undefined
+    }
+
+    const toggleSign = () => {
+        if(number.includes('-')){
+            //Hecho por el profe
+            return setNumber(number.replace('-',''))
+
+            //Hecho por mi
+            // var newNum= number.replace('-','')
+            // setNumber(newNum)
+            // console.log(newNum)
+        } else{
+            //Hecho por el Profe
+            setNumber('-'+number)
+            //Hecho por mi
+            // var newNum= '-'+number
+            // setNumber(newNum)
+            // console.log(newNum)
+        }
     }
 
     return{
@@ -58,9 +79,11 @@ export const useCalculator = () => {
         formula,
         number,
         previusNumber,
-        Reset,
+        
 
         //Metodos
+        Reset,
         buildNumber,
+        toggleSign
     }
 }
