@@ -10,7 +10,7 @@ export const GlobalStyles = StyleSheet.create({
     },
     CalculatorContainer:{
         flex: 1,
-        paddingBottom: 20,
+        paddingBottom: 0,
         justifyContent: 'flex-end'
     },
     mainResult:{
@@ -18,14 +18,16 @@ export const GlobalStyles = StyleSheet.create({
         fontSize: 70,
         textAlign: 'right',
         fontWeight: '400',
-        // fontFamily: 'SpaceMono'
+        fontFamily: 'SpaceMono'
     },
     subResult: {
         color: Colors.textSecundary,
         fontSize: 40,
         textAlign: 'right',
         fontWeight: '300',
-        // fontFamily: 'SpaceMono'
+        paddingBottom: 10,
+
+        fontFamily: 'SpaceMono'
     },
     row:{
         flexDirection:'row',
@@ -50,5 +52,14 @@ export const GlobalStyles = StyleSheet.create({
         color: Colors.textPrimary,
         fontWeight: '300',
         fontFamily: 'SpaceMono'
+    },
+    doubleButton:{
+        height:80,
+        width:80,
+        backgroundColor: Colors.darkGray,
+        borderRadius: 100,
+        justifyContent: 'center',
+        marginHorizontal: 10
+
     }
 })

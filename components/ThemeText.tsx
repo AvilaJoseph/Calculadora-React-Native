@@ -12,7 +12,7 @@ const ThemeText = ({children, variant, ...rest}: Props) => {
       <Text style={[
         {color:'white'},
         variant === 'h1' && GlobalStyles.mainResult,
-        variant === 'h2' && GlobalStyles.subResult
+        variant === 'h2' && GlobalStyles.subResult,
       ]}
       numberOfLines={1}
       adjustsFontSizeToFit
