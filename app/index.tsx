@@ -5,12 +5,18 @@ import { Colors } from '@/constants/Colors'
 import { GlobalStyles } from '@/styles/globlal-styles'
 import ThemeText from '@/components/ThemeText'
 import CalculatorButton from '@/components/CalculatorButton'
+import { useCalculator } from '@/hooks/useCalculator'
 
 const index = () => {
+
+  const {
+    formula, buildNumber, number, Reset
+  } = useCalculator()
+
   return (
     <View style={GlobalStyles.CalculatorContainer}>
       <View style={{paddingHorizontal:30,marginBottom:20}}>
-      <ThemeText variant='h1'>25x25</ThemeText>
+      <ThemeText variant='h1'>{formula}</ThemeText>
       <ThemeText variant='h2'>2500</ThemeText>
 
       {/* Ahora vienen la estructura de los botones*/}
@@ -20,97 +26,97 @@ const index = () => {
         color={Colors.lightGray}
         blackText
         label='C' 
-        onPress={() => console.log('C')}/>
+        onPress={() => Reset()}/>
 
         <CalculatorButton
         color={Colors.lightGray}
         blackText
         label='+/-' 
-        onPress={() => console.log('+/-')}/>
+        onPress={() => buildNumber('+/-')}/>
 
         <CalculatorButton
         color={Colors.lightGray}
         blackText
         label='del' 
-        onPress={() => console.log('del')}/>
+        onPress={() => buildNumber('del')}/>
 
         <CalculatorButton
         color={Colors.orange}
         label='%' 
-        onPress={() => console.log('%')}/>
+        onPress={() => buildNumber('%')}/>
       </View>
 
       <View style={GlobalStyles.row}>
         <CalculatorButton
         label='7' 
-        onPress={() => console.log('C')}/>
+        onPress={() => buildNumber('7')}/>
 
         <CalculatorButton
         label='8' 
-        onPress={() => console.log('+/-')}/>
+        onPress={() => buildNumber('8')}/>
 
         <CalculatorButton
         label='9' 
-        onPress={() => console.log('del')}/>
+        onPress={() => buildNumber('9')}/>
 
         <CalculatorButton
         color={Colors.orange}
         label='x' 
-        onPress={() => console.log('%')}/>
+        onPress={() => buildNumber('x')}/>
       </View>
 
       <View style={GlobalStyles.row}>
         <CalculatorButton
         label='4' 
-        onPress={() => console.log('C')}/>
+        onPress={() => buildNumber('4')}/>
 
         <CalculatorButton
         label='5' 
-        onPress={() => console.log('+/-')}/>
+        onPress={() => buildNumber('5')}/>
 
         <CalculatorButton
         label='6' 
-        onPress={() => console.log('del')}/>
+        onPress={() => buildNumber('6')}/>
 
         <CalculatorButton
         color={Colors.orange}
         label='-' 
-        onPress={() => console.log('%')}/>
+        onPress={() => buildNumber('-')}/>
       </View>
 
       <View style={GlobalStyles.row}>
         <CalculatorButton
         label='1' 
-        onPress={() => console.log('C')}/>
+        onPress={() => buildNumber('1')}/>
 
         <CalculatorButton
         label='2' 
-        onPress={() => console.log('+/-')}/>
+        onPress={() => buildNumber('2')}/>
 
         <CalculatorButton
         label='3' 
-        onPress={() => console.log('del')}/>
+        onPress={() => buildNumber('3')}/>
 
         <CalculatorButton
         color={Colors.orange}
         label='+' 
-        onPress={() => console.log('%')}/>
+        onPress={() => buildNumber('+')}/>
       </View>
 
       <View style={GlobalStyles.row}>
         <CalculatorButton
         label='0' 
         doubleSize
-        onPress={() => console.log('C')}/>
+        onPress={() => buildNumber('0')}/>
 
         <CalculatorButton
         label='.' 
-        onPress={() => console.log('+/-')}/>
+        onPress={() => buildNumber('.')}/>
 
         <CalculatorButton
         color={Colors.orange}
         label='=' 
-        onPress={() => console.log('del')}/>
+        onPress={() => buildNumber('=')}/>
       </View>
 
       </View>
