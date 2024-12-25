@@ -9,7 +9,7 @@ enum Operator{
 
 export const useCalculator = () => {
 
-    const [formula, setFormula] = useState('')
+    const [formula, setFormula] = useState('0')
 
     const [number, setNumber] = useState('0')
     const [previusNumber, setPreviusNumber] = useState('0')
@@ -61,7 +61,7 @@ export const useCalculator = () => {
             return setNumber(number.replace('-',''))
 
             //Hecho por mi
-            // var newNum= number.replace('-','')
+            // var newNum= number.replace('-','')   
             // setNumber(newNum)
             // console.log(newNum)
         } else{
@@ -74,6 +74,26 @@ export const useCalculator = () => {
         }
     }
 
+    const del = () =>{
+        
+
+        if(number.length > 1){
+            setNumber(number.slice(0,-1))
+        }
+
+        if(number.length <= 1){
+            setNumber('0')
+        }
+
+        if(number.startsWith('-')){
+            if(number.length > 1){
+                setNumber(number.slice(0,-2))
+                setNumber('0')
+            }
+        }
+    }
+
+
     return{
         //Props
         formula,
@@ -84,6 +104,7 @@ export const useCalculator = () => {
         //Metodos
         Reset,
         buildNumber,
-        toggleSign
+        toggleSign,
+        del
     }
 }

@@ -10,7 +10,7 @@ import { useCalculator } from '@/hooks/useCalculator'
 const index = () => {
 
   const {
-    formula, buildNumber, number, Reset, toggleSign
+    formula, buildNumber, number, Reset, toggleSign, del
   } = useCalculator()
 
   return (
@@ -38,7 +38,7 @@ const index = () => {
         color={Colors.lightGray}
         blackText
         label='del' 
-        onPress={() => buildNumber('del')}/>
+        onPress={() => del()}/>
 
         <CalculatorButton
         color={Colors.orange}
