@@ -61,19 +61,27 @@ export const useCalculator = () => {
     }
 
     const setLastNumber = () => {
-        calculateResult()
-        if(number.endsWith('.')){
-            console.log('entro aqui en el error')
-            setPreviusNumber(number.slice(0,-1))
-            console.log(number)
-            console.log(previusNumber)
-        }else{
-            
+        let cleanNumber = number;
+    
+        // Si el número termina en un punto, eliminamos el último carácter
+        if (number.endsWith('.')) {
+            cleanNumber = number.slice(0, -1);
         }
-        setPreviusNumber(number)
-        setNumber('0')
-
-    }
+    
+        // Actualizamos el número previo con el número limpio
+        setPreviusNumber(cleanNumber);
+    
+        // Actualizamos la fórmula para reflejar el cambio
+        setFormula((prevFormula) => {
+            const parts = prevFormula.split(' ');
+            parts[0] = cleanNumber; // Actualizamos la primera parte de la fórmula
+            return parts.join(' ');
+        });
+    
+        // Reiniciamos el número actual
+        setNumber('0');
+    };
+    
 
     const divideOperation = () => {
         console.log(number)
@@ -189,11 +197,13 @@ export const useCalculator = () => {
     }
 
     const calculateResult = () => {
-        const result = calculareSubResult()
-        setFormula(`${result}`) 
-        LastOperation.current= undefined
-        setPreviusNumber('0')
-    }
+        const result = calculareSubResult();
+        setFormula(result.toString()); // Muestra el número tal como es
+        setNumber(result.toString());
+        LastOperation.current = undefined;
+        setPreviusNumber('0');
+    };
+    
 
     return{
         //Props
