@@ -38,6 +38,7 @@ const CalculatorButton = ({
     style={[
       GlobalStyles.buttonText,
       { color: blackText ? 'black' : 'white' },
+      
     ]}
   >
     {label}

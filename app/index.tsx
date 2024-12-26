@@ -10,14 +10,33 @@ import { useCalculator } from '@/hooks/useCalculator'
 const index = () => {
 
   const {
-    formula, buildNumber, number, Reset, toggleSign, del
+    formula, 
+    buildNumber, 
+    number, 
+    Reset, 
+    toggleSign, 
+    del,
+    previusNumber, 
+    addOperation, 
+    substrackOperation,
+    multiplyOperation,
+    divideOperation,
+    calculateResult,
+    calculareSubResult
   } = useCalculator()
 
   return (
     <View style={GlobalStyles.CalculatorContainer}>
       <View style={{paddingHorizontal:30,marginBottom:20}}>
       <ThemeText variant='h1'>{formula}</ThemeText>
-      <ThemeText variant='h2'>2500</ThemeText>
+
+      {
+        formula === previusNumber ? (
+          <ThemeText variant='h2'> </ThemeText>
+        ) : <ThemeText variant='h2'>{previusNumber}</ThemeText>
+      }
+
+      
 
       {/* Ahora vienen la estructura de los botones*/}
 
@@ -42,8 +61,8 @@ const index = () => {
 
         <CalculatorButton
         color={Colors.orange}
-        label='%' 
-        onPress={() => buildNumber('%')}/>
+        label='/' 
+        onPress={() => divideOperation()}/>
       </View>
 
       <View style={GlobalStyles.row}>
@@ -62,7 +81,7 @@ const index = () => {
         <CalculatorButton
         color={Colors.orange}
         label='x' 
-        onPress={() => buildNumber('x')}/>
+        onPress={() => multiplyOperation()}/>
       </View>
 
       <View style={GlobalStyles.row}>
@@ -81,7 +100,7 @@ const index = () => {
         <CalculatorButton
         color={Colors.orange}
         label='-' 
-        onPress={() => buildNumber('-')}/>
+        onPress={() => substrackOperation()}/>
       </View>
 
       <View style={GlobalStyles.row}>
@@ -100,7 +119,7 @@ const index = () => {
         <CalculatorButton
         color={Colors.orange}
         label='+' 
-        onPress={() => buildNumber('+')}/>
+        onPress={() => addOperation()}/>
       </View>
 
       <View style={GlobalStyles.row}>
@@ -116,7 +135,7 @@ const index = () => {
         <CalculatorButton
         color={Colors.orange}
         label='=' 
-        onPress={() => buildNumber('=')}/>
+        onPress={() => calculateResult()}/>
       </View>
 
       </View>
